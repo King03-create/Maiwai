@@ -13,7 +13,7 @@ class Sakana extends Animal{
   void move(){
     if(nowTime > waitTime * 30){
       moveAction(false, false);
-      if(positionX < -100) setMoveValue(0, 0);
+      if(positionX < -80 * (width/3000.0)) setMoveValue(0, 0);
       if(positionY > 100){
         reset();
         setMoveValue(-1, -1);
@@ -21,6 +21,7 @@ class Sakana extends Animal{
       }
     }
     nowTime++;
+    println("sakana:"+positionX);
   }
   
   void setTouched(float fingerX, float fingerY){
