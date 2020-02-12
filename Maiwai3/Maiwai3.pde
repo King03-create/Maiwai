@@ -36,8 +36,12 @@ void setup(){
   tsuru4 = new Tori(tori2_images, 1);
   tsuru5 = new Tori(tori3_images, 100);
   kame = new Kame("kame_color.png", 0.1, 0.965, 5);
+<<<<<<< HEAD
   sakana = new Sakana("sakana.png", 0.87, 0.99, 20);
   fune1 = new Drafts("fune1.png", 1);
+=======
+  sakana = new Sakana("sakana.png", 0.86, 0.99, 20);
+>>>>>>> refs/remotes/origin/master
   iwa = new Object("iwa1.png", 0.1, 0.875);
   nami1 = new Nami("nami1.png", 0.5, 0.96);
   nami2 = new Nami("nami2.png", 0.5, 0.93);
@@ -67,10 +71,13 @@ void draw(){
   hana.setImages(display.fingerX, display.fingerY);
   nami2.waving(0.9, -10, 30);
   
+<<<<<<< HEAD
   sakana.move();
   
   nami1.waving(1, -10, 50);
   
+=======
+>>>>>>> refs/remotes/origin/master
   //touchedMarker();
   display.setMask(0);
 }
