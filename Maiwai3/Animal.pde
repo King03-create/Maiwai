@@ -83,8 +83,8 @@ class Animal extends RichObject{
   }
   
   void setPosition(float x, float y){
-    iniX = x * convertWidth;
-    iniY = y * convertHeight;
+    iniX = x * convertWidth * display.SENSOR_WIDTH;
+    iniY = y * convertHeight * display.SENSOR_HEIGHT;
     iniPositionX = iniX;
     iniPositionY = iniY;
   }

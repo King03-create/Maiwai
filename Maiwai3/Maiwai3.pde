@@ -34,11 +34,11 @@ void setup(){
   tsuru3 = new Tori(tori2_images, 1);
   tsuru4 = new Tori(tori2_images, 1);
   tsuru5 = new Tori(tori3_images, 100);
-  kame = new Kame("kame_color.png", 100, 1400, 5);
-  sakana = new Sakana("sakana.png", 750, 1425, 20);
-  iwa = new Object("iwa1.png", 100, 1250);
-  nami1 = new Nami("nami1.png", display.SENSOR_WIDTH/2.0, 1380);
-  nami2 = new Nami("nami2.png", display.SENSOR_WIDTH/2.0, 1340);
+  kame = new Kame("kame_color.png", 0.1, 0.965, 5);
+  sakana = new Sakana("sakana.png", 0.86, 0.99, 20);
+  iwa = new Object("iwa1.png", 0.1, 0.875);
+  nami1 = new Nami("nami1.png", 0.5, 0.96);
+  nami2 = new Nami("nami2.png", 0.5, 0.93);
   
   hana = new Hana("hana.png");
   
@@ -66,9 +66,7 @@ void draw(){
   nami2.waving(0.9, -10, 30);
   nami1.waving(1, -10, 50);
   
-  
-    
-  touchedMarker();
+  //touchedMarker();
   display.setMask(0);
 }
 

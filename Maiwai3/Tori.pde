@@ -16,8 +16,8 @@ class Tori extends Animal{
   void initialize(){
     speed = random(1, 3);
     waitTime = int(random(1, 5));
-    randomPositionX = 900;
-    randomPositionY = random(100, 800);
+    randomPositionX = 1.2;
+    randomPositionY = random(0.1, 0.7);
     randomVelX = random(-4, -1);
     randomVelY = random(0, 1);
     randomAccelY = random(0, 1) * 0.01;
