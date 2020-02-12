@@ -65,7 +65,7 @@ class Tori extends Animal{
       }
       if(!isRun){ // 逃げなかった場合
         if(iniMoveVelX > 0 && positionX > right) resetValues(); // 左から右へ
-        if(iniMoveVelX < 0 && positionLeft > display.SENSOR_WIDTH) resetValues(); // 右から左へ
+        if(iniMoveVelX < 0 && positionLeft < left) resetValues(); // 右から左へ
       }
     }
   }
