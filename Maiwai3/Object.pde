@@ -31,8 +31,8 @@ class Object{
   /*-----------------------------------表示用-------------------------------------------*/
   
   void display(PImage image){
-    float translateX = ((iniX + displayOriginX) + positionX) * width / 3000.0; 
-    float translateY = ((iniY + displayOriginY) + positionY) * height / 2000.0;
+    float translateX = ((iniX + displayOriginX) * width / 3000.0 + positionX); 
+    float translateY = ((iniY + displayOriginY) * height / 2000.0 + positionY);
     float sizeWidth = image.width * width / 3000.0;
     float sizeHeight = image.height * height / 2000.0;
     
