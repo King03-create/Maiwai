@@ -31,8 +31,8 @@ class Object{
   /*-----------------------------------表示用-------------------------------------------*/
   
   void display(PImage image){
-    float translateX = ((iniX + displayOriginX) + positionX) * width / 3000.0; 
-    float translateY = ((iniY + displayOriginY) + positionY) * height / 2000.0;
+    float translateX = ((iniX + displayOriginX) + positionX); 
+    float translateY = ((iniY + displayOriginY) + positionY);
     float sizeWidth = image.width * width / 3000.0;
     float sizeHeight = image.height * height / 2000.0;
     
@@ -40,11 +40,11 @@ class Object{
       pushMatrix();
       translate(translateX, translateY);
       rotate(radians(angle));
-      image(image, -image.width/2.0, -image.height/2.0, sizeWidth, sizeHeight);
+      image(image, -sizeWidth/2.0, -sizeHeight/2.0, sizeWidth, sizeHeight);
       popMatrix();
     }else{
       translate(translateX, translateY);
-      image(image, -image.width/2.0, -image.height/2.0, sizeWidth, sizeHeight);
+      image(image, -sizeWidth/2.0, -sizeHeight/2.0, sizeWidth, sizeHeight);
       translate(-translateX, -translateY); 
     }
   }
@@ -56,13 +56,13 @@ class Object{
   /*----------------------------------位置、角度の決定用--------------------------------------------*/
   
   void setPosition(float x, float y){
-    positionX = x * convertWidth;// * width / 3000.0;
-    positionY = y * convertHeight;// * height / 2000.0;
+    positionX = x * convertWidth;
+    positionY = y * convertHeight;
   }
   
   void addPosition(float x, float y){
-    positionX += x * convertWidth;// * width / 3000.0;;
-    positionY += y * convertHeight;// * height / 2000.0;
+    positionX += x * convertWidth;
+    positionY += y * convertHeight;
   }
   
   void setAngle(float angle){
