@@ -17,8 +17,8 @@ class Object{
     
     convertWidth = display.screenWidth / display.SENSOR_WIDTH;
     convertHeight = display.screenHeight / display.SENSOR_HEIGHT;
-    iniX = x * convertWidth;
-    iniY = y * convertHeight;
+    iniX = x * convertWidth * display.SENSOR_WIDTH;
+    iniY = y * convertHeight  * display.SENSOR_HEIGHT;
     
     displayOriginX = display.left;
     displayOriginY = display.top;
@@ -31,18 +31,20 @@ class Object{
   /*-----------------------------------表示用-------------------------------------------*/
   
   void display(PImage image){
-    float translateX = (iniX + displayOriginX) + positionX; 
-    float translateY = (iniY + displayOriginY) + positionY;
+    float translateX = ((iniX + displayOriginX) + positionX); 
+    float translateY = ((iniY + displayOriginY) + positionY);
+    float sizeWidth = image.width * width / 3000.0;
+    float sizeHeight = image.height * height / 2000.0;
     
     if(angle != 0){
       pushMatrix();
       translate(translateX, translateY);
       rotate(radians(angle));
-      image(image, -image.width/2.0, -image.height/2.0);
+      image(image, -sizeWidth/2.0, -sizeHeight/2.0, sizeWidth, sizeHeight);
       popMatrix();
     }else{
       translate(translateX, translateY);
-      image(image, -image.width/2.0, -image.height/2.0);
+      image(image, -sizeWidth/2.0, -sizeHeight/2.0, sizeWidth, sizeHeight);
       translate(-translateX, -translateY); 
     }
   }

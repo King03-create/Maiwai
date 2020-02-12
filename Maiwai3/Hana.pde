@@ -10,7 +10,7 @@ class Hana extends Object{
   
   Hana(String image){
     super(image);
-    final int floweNumber = 100;
+    final int floweNumber = 250;
     pointX = new float[floweNumber];
     pointY = new float[floweNumber];
     angle = new float[floweNumber];

@@ -13,7 +13,7 @@ class Kame extends Animal{
   void move(){
     if(nowTime > waitTime * 30){
       moveAction(false, false);
-      if(positionX > 120) setMoveValue(0, 0);
+      if(positionX > 120 * (width/3000.0)) setMoveValue(0, 0);
       if(positionY > 100){
         reset();
         setMoveValue(1, -1);
@@ -21,6 +21,7 @@ class Kame extends Animal{
       }
     }
     nowTime++;
+    println("kame:"+positionX);
   }
   
   void setTouched(float fingerX, float fingerY){
