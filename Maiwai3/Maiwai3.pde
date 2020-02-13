@@ -116,8 +116,8 @@ void draw(){
   // 両端の黒（マスク）
   display.setMask(0);
   
-  if(fune1.isReset) sound_awa.close();
-  if(fune1.isStart) sound_awa.play();
+  if(fune1.visible) sound_awa.play();
+  else sound_awa.pause();
 }
 
 void mouseClicked(){
