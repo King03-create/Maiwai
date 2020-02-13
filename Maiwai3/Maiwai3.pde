@@ -8,7 +8,7 @@ import ddf.minim.ugens.*;
 Display display;
 Object iwa1, iwa2;
 BigTsuru bigTsuru;
-Tori tsuru1, tsuru2, tsuru3, tsuru4, tsuru5;
+Tori tsuru1, tsuru2, tsuru3, tsuru4, tsuru5, kamome1, kamome2, kamome3;
 Kame kame;
 Sakana sakana;
 Fune fune1;
@@ -18,6 +18,9 @@ Hana hana, hana1, hana2;
 String[] tori1_images = {"tori1_1.png", "tori1_2.png", "tori1_3.png", "tori1_4.png"};
 String[] tori2_images = {"tori2_2.png"};
 String[] tori3_images = {"tori2_2.png", "tori2_1.png"};
+String[] kamome1_image = {"kamome1.png"};
+String[] kamome2_image = {"kamome2.png"};
+String[] kamome3_image = {"kamome3.png"};
 
 final String VERTICAL = "VERTICAL";
 final String LANDSCAPE = "LANDSCAPE";
@@ -34,10 +37,13 @@ void setup(){
   display = new Display();
   
   tsuru1 = new Tori(tori1_images, 1);
-  tsuru2 = new Tori(tori1_images, 1);
-  tsuru3 = new Tori(tori2_images, 1);
-  tsuru4 = new Tori(tori2_images, 1);
+  tsuru2 = new Tori(tori1_images, 2);
+  tsuru3 = new Tori(tori2_images, 3);
+  tsuru4 = new Tori(tori2_images, 4);
   tsuru5 = new Tori(tori3_images, 100);
+  kamome1 = new Tori(kamome1_image, 5);
+  kamome2 = new Tori(kamome1_image, 15);
+  kamome3 = new Tori(kamome1_image, 25);
   kame = new Kame("kame_color.png", 0.1, 0.97, 5);
 
   fune1 = new Fune("fune1.png", 1);
@@ -71,6 +77,9 @@ void draw(){
   tsuru3.setFly();
   tsuru4.setFly();
   tsuru5.setFly();
+  kamome1.setFly();
+  kamome2.setFly();
+  kamome3.setFly();
   iwa2.display();
   
   // 一番奥の波
@@ -119,6 +128,9 @@ void setTouch(){
   tsuru3.setTouched(mouseX, mouseY);
   tsuru4.setTouched(mouseX, mouseY);
   tsuru5.setTouched(mouseX, mouseY);
+  kamome1.setTouched(mouseX, mouseY);
+  kamome2.setTouched(mouseX, mouseY);
+  kamome3.setTouched(mouseX, mouseY);
   kame.setTouched(mouseX, mouseY);
   sakana.setTouched(mouseX, mouseY);
   fune1.setTouched(mouseX, mouseY);
@@ -128,6 +140,9 @@ void setTouch(){
   tsuru3.setTouched(display.fingerX, display.fingerY);
   tsuru4.setTouched(display.fingerX, display.fingerY);
   tsuru5.setTouched(display.fingerX, display.fingerY);
+  kamome1.setTouched(display.fingerX, display.fingerY);
+  kamome2.setTouched(display.fingerX, display.fingerY);
+  kamome3.setTouched(display.fingerX, display.fingerY);
   kame.setTouched(display.fingerX, display.fingerY);
   sakana.setTouched(display.fingerX, display.fingerY);
   fune1.setTouched(display.fingerX, display.fingerY);

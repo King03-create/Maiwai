@@ -26,6 +26,6 @@ class Drafts extends RichObject{
     nowTime++;
     draftAngle++;
     nowX++;
-    if(positionX < -500) initialise();
+    if(positionX < -(image.width + 10)) initialise();
   }
 }

@@ -16,7 +16,7 @@ class Kame extends Animal{
       if(positionX > 120 * (width/3000.0)) setMoveValue(0, 0);
       if(positionY > 100){
         reset();
-        setMoveValue(1, -1);
+        setMoveValue(0.5, -0.5);
         nowTime = 0;
       }
     }

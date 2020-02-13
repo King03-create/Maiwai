@@ -14,7 +14,7 @@ class BigTsuru{
   
   void advent(){
     if(bigKameCount < 500){
-      if(bigTsuruCount >= 1){
+      if(bigTsuruCount >= 5){
         bigTsuruAdvent = true;
         if(bigTsuru.positionY / height < 0.15) bigTsuru.move(-0.01, 1);
         else bigTsuru.display();
