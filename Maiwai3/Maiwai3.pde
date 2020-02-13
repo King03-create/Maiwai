@@ -104,8 +104,11 @@ void draw(){
   
   // ４番目の波
   nami1.waving(1, 10, 50);
-  
-  if(tsuru1.pulseRun || tsuru2.pulseRun || tsuru3.pulseRun || tsuru4.pulseRun || tsuru5.pulseRun) bigTsuru.setCount();
+  if(tsuru1.pulseRun ||
+     tsuru2.pulseRun || 
+     tsuru3.pulseRun || 
+     tsuru4.pulseRun || 
+     tsuru5.pulseRun) bigTsuru.setCount();
   bigTsuru.advent();
   
   // 両端の黒（マスク）
