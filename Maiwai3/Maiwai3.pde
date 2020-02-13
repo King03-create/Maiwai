@@ -49,7 +49,7 @@ void setup(){
   kamome5 = new Tori(kamome2_image, 25);
   kame = new Kame("kame_color.png", 0.1, 0.97, 5);
 
-  fune1 = new Fune("fune1.png", 1);
+  fune1 = new Fune("fune1.png", 50);
   sakana = new Sakana("sakana.png", 0.95, 0.995, 20);
 
   iwa1 = new Object("iwa1.png", 0.1, 0.85);
