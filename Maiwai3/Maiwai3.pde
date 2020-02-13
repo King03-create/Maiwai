@@ -26,6 +26,7 @@ final String VERTICAL = "VERTICAL";
 final String LANDSCAPE = "LANDSCAPE";
 
 int bigTsuruCount = 0;
+float funeGain = 0;
 
 Minim minim;
 AudioPlayer sound_umi, sound_awa;
@@ -116,8 +117,16 @@ void draw(){
   // 両端の黒（マスク）
   display.setMask(0);
   
+  
+  if(fune1.positionX > display.SENSOR_WIDTH/2.0 + 100) funeGain += 0.1;
+  else if(fune1.positionX < display.SENSOR_WIDTH/2.0 - 100) funeGain -= 0.1;
+  println(funeGain);
   if(fune1.visible) sound_awa.play();
-  else sound_awa.pause();
+  else {
+    funeGain = 0;
+    sound_awa.play(0);
+    sound_awa.pause();
+  }
 }
 
 void mouseClicked(){

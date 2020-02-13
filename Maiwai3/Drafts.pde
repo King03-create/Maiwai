@@ -27,7 +27,7 @@ class Drafts extends RichObject{
       draftAngle++;
       nowX++;
       visible = true;
-      if(positionX < 150) initialise();
+      if(positionX < -150) initialise();
     }else{
       nowTime++;
     }

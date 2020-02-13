@@ -35,7 +35,6 @@ class BigTsuru{
         initialise();
       }
     }
-    println(bigKame.positionY);
   }
   
   void initialise(){
