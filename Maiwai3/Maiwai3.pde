@@ -72,14 +72,14 @@ void draw(){
   display.setBackground(#142255);
   
   // 空
+  kamome1.setFly();
+  kamome2.setFly();
+  kamome3.setFly();
   tsuru1.setFly();
   tsuru2.setFly();
   tsuru3.setFly();
   tsuru4.setFly();
   tsuru5.setFly();
-  kamome1.setFly();
-  kamome2.setFly();
-  kamome3.setFly();
   iwa2.display();
   
   // 一番奥の波
