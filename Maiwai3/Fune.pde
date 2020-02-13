@@ -3,7 +3,6 @@ class Fune extends Drafts{
   boolean isTouched = false;
   boolean isViewTai = false;
   boolean isViewRyou = false;
-  boolean atFirst = false;
   int ryouWaitTime = 0;
   int touchedTime = 0;
   
@@ -16,8 +15,6 @@ class Fune extends Drafts{
   void moving(float y, float speed){
     float funeX = positionX / convertWidth;
     float funeY = positionY / convertHeight;
-    if(!atFirst) atFirst = true;
-    if(nowX == 0) atFirst = false;
     
     super.drafting(y, speed);
     if(isTouched){
