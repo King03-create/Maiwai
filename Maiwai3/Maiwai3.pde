@@ -8,7 +8,7 @@ import ddf.minim.ugens.*;
 Display display;
 Object iwa1, iwa2;
 BigTsuru bigTsuru;
-Tori tsuru1, tsuru2, tsuru3, tsuru4, tsuru5, kamome1, kamome2, kamome3;
+Tori tsuru1, tsuru2, tsuru3, tsuru4, tsuru5, kamome1, kamome2, kamome3, kamome4, kamome5;
 Kame kame;
 Sakana sakana;
 Fune fune1;
@@ -42,8 +42,10 @@ void setup(){
   tsuru4 = new Tori(tori2_images, 4);
   tsuru5 = new Tori(tori3_images, 100);
   kamome1 = new Tori(kamome1_image, 5);
-  kamome2 = new Tori(kamome2_image, 15);
-  kamome3 = new Tori(kamome3_image, 25);
+  kamome2 = new Tori(kamome2_image, 10);
+  kamome3 = new Tori(kamome3_image, 15);
+  kamome4 = new Tori(kamome1_image, 20);
+  kamome5 = new Tori(kamome2_image, 25);
   kame = new Kame("kame_color.png", 0.1, 0.97, 5);
 
   fune1 = new Fune("fune1.png", 1);
@@ -75,6 +77,8 @@ void draw(){
   kamome1.setFly();
   kamome2.setFly();
   kamome3.setFly();
+  kamome4.setFly();
+  kamome5.setFly();
   tsuru1.setFly();
   tsuru2.setFly();
   tsuru3.setFly();
@@ -131,6 +135,8 @@ void setTouch(){
   kamome1.setTouched(mouseX, mouseY);
   kamome2.setTouched(mouseX, mouseY);
   kamome3.setTouched(mouseX, mouseY);
+  kamome4.setTouched(mouseX, mouseY);
+  kamome5.setTouched(mouseX, mouseY);
   kame.setTouched(mouseX, mouseY);
   sakana.setTouched(mouseX, mouseY);
   fune1.setTouched(mouseX, mouseY);
@@ -143,6 +149,8 @@ void setTouch(){
   kamome1.setTouched(display.fingerX, display.fingerY);
   kamome2.setTouched(display.fingerX, display.fingerY);
   kamome3.setTouched(display.fingerX, display.fingerY);
+  kamome4.setTouched(display.fingerX, display.fingerY);
+  kamome5.setTouched(display.fingerX, display.fingerY);
   kame.setTouched(display.fingerX, display.fingerY);
   sakana.setTouched(display.fingerX, display.fingerY);
   fune1.setTouched(display.fingerX, display.fingerY);
