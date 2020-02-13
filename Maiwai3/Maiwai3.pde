@@ -42,8 +42,8 @@ void setup(){
   tsuru4 = new Tori(tori2_images, 4);
   tsuru5 = new Tori(tori3_images, 100);
   kamome1 = new Tori(kamome1_image, 5);
-  kamome2 = new Tori(kamome1_image, 15);
-  kamome3 = new Tori(kamome1_image, 25);
+  kamome2 = new Tori(kamome2_image, 15);
+  kamome3 = new Tori(kamome3_image, 25);
   kame = new Kame("kame_color.png", 0.1, 0.97, 5);
 
   fune1 = new Fune("fune1.png", 1);
