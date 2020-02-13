@@ -2,6 +2,7 @@ class Drafts extends RichObject{
   int waitTime, nowTime;
   int nowX;
   int draftAngle = 0;
+  int randomAngle;
   
   Drafts(String image, int time){
     super(image);
@@ -11,14 +12,15 @@ class Drafts extends RichObject{
   
   void initialise(){
     nowTime = 0;
-    draftAngle = 0;
     nowX = 0;
+    draftAngle = 0;
+    randomAngle = random(0, 360);
   }
   
-  void drafting(float y){
+  void drafting(float y, int speedqw){
     if(waitTime * 30 < nowTime){
-      float positionX = (1.4 * width / 3000.0 * display.SENSOR_WIDTH - nowX);
-      float positionY = y * height / 2000.0 * display.SENSOR_HEIGHT + 5 * sin(draftAngle*0.2);
+      float positionX = (1.4 * display.SENSOR_WIDTH - nowX);
+      float positionY = y * display.SENSOR_HEIGHT + 5 * sin(draftAngle*speed + randomAngle);
       put(positionX, positionY);
     }
     nowTime++;
