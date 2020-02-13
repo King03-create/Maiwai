@@ -13,10 +13,10 @@ class BigTsuru{
   }
   
   void advent(){
-    if(bigKameCount < 100){
+    if(bigKameCount < 500){
       if(bigTsuruCount >= 1){
         bigTsuruAdvent = true;
-        if(bigTsuru.positionY / height < 0.275) bigTsuru.move(-0.01, 1);
+        if(bigTsuru.positionY / height < 0.2) bigTsuru.move(-0.01, 1);
         else bigTsuru.display();
         
         if(bigKameAdvent){
