@@ -117,6 +117,7 @@ void draw(){
   display.setMask(0);
   
   if(fune1.atFirst) sound_awa.play();
+  if(fune1.nowX == 0) sound_awa.close();
 }
 
 void mouseClicked(){

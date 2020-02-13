@@ -24,7 +24,7 @@ class Drafts extends RichObject{
       put(positionX, positionY);
       draftAngle++;
       nowX++;
-      if(positionX < 0) initialise();
+      if(positionX < 50) initialise();
     }else{
       nowTime++;
     }
