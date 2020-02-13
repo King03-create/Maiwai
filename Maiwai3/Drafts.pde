@@ -14,10 +14,10 @@ class Drafts extends RichObject{
     nowTime = 0;
     nowX = 0;
     draftAngle = 0;
-    randomAngle = random(0, 360);
+    randomAngle = (int)random(0, 360);
   }
   
-  void drafting(float y, int speedqw){
+  void drafting(float y, float speed){
     if(waitTime * 30 < nowTime){
       float positionX = (1.4 * display.SENSOR_WIDTH - nowX);
       float positionY = y * display.SENSOR_HEIGHT + 5 * sin(draftAngle*speed + randomAngle);
@@ -26,7 +26,6 @@ class Drafts extends RichObject{
     nowTime++;
     draftAngle++;
     nowX++;
-    if(draftAngle > 360) draftAngle -= 360;
-    if(positionX < 0) initialise();
+    if(positionX < -500) initialise();
   }
 }

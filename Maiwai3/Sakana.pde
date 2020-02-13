@@ -21,7 +21,6 @@ class Sakana extends Animal{
       }
     }
     nowTime++;
-    println("sakana:"+positionX);
   }
   
   void setTouched(float fingerX, float fingerY){

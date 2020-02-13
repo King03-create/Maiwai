@@ -18,7 +18,7 @@ class Object{
     convertWidth = display.screenWidth / display.SENSOR_WIDTH;
     convertHeight = display.screenHeight / display.SENSOR_HEIGHT;
     iniX = x * convertWidth * display.SENSOR_WIDTH;
-    iniY = y * convertHeight  * display.SENSOR_HEIGHT;
+    iniY = y * convertHeight * display.SENSOR_HEIGHT;
     
     displayOriginX = display.left;
     displayOriginY = display.top;

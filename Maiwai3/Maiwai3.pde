@@ -6,13 +6,14 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
 Display display;
-Object iwa;
+Object iwa1, iwa2;
+BigTsuru bigTsuru;
 Tori tsuru1, tsuru2, tsuru3, tsuru4, tsuru5;
 Kame kame;
 Sakana sakana;
-Drafts fune1;
-Nami nami1, nami2;
-Hana hana;
+Fune fune1;
+Nami nami1, nami2, nami3, nami4;
+Hana hana, hana1, hana2;
 
 String[] tori1_images = {"tori1_1.png", "tori1_2.png", "tori1_3.png", "tori1_4.png"};
 String[] tori2_images = {"tori2_2.png"};
@@ -20,6 +21,8 @@ String[] tori3_images = {"tori2_2.png", "tori2_1.png"};
 
 final String VERTICAL = "VERTICAL";
 final String LANDSCAPE = "LANDSCAPE";
+
+int bigTsuruCount = 0;
 
 Minim minim;
 AudioPlayer sound_umi;
@@ -35,18 +38,22 @@ void setup(){
   tsuru3 = new Tori(tori2_images, 1);
   tsuru4 = new Tori(tori2_images, 1);
   tsuru5 = new Tori(tori3_images, 100);
-  kame = new Kame("kame_color.png", 0.1, 0.965, 5);
-<<<<<<< HEAD
-  sakana = new Sakana("sakana.png", 0.87, 0.99, 20);
-  fune1 = new Drafts("fune1.png", 1);
-=======
-  sakana = new Sakana("sakana.png", 0.86, 0.99, 20);
->>>>>>> refs/remotes/origin/master
-  iwa = new Object("iwa1.png", 0.1, 0.875);
+  kame = new Kame("kame_color.png", 0.1, 0.97, 5);
+
+  fune1 = new Fune("fune1.png", 1);
+  sakana = new Sakana("sakana.png", 0.95, 0.995, 20);
+
+  iwa1 = new Object("iwa1.png", 0.1, 0.85);
+  iwa2 = new Object("iwa2.png", 0.9, 0.79);
+  bigTsuru = new BigTsuru();
   nami1 = new Nami("nami1.png", 0.5, 0.96);
   nami2 = new Nami("nami2.png", 0.5, 0.93);
+  nami3 = new Nami("nami3.png", 0.5, 0.94);
+  nami4 = new Nami("nami4.png", 0.5, 0.93);
   
   hana = new Hana("hana.png");
+  hana1 = new Hana("hana1.png");
+  hana2 = new Hana("hana1.png");
   
   minim = new Minim(this);
   sound_umi = minim.loadFile("sound/umi.mp3");
@@ -55,30 +62,40 @@ void setup(){
 }
 
 void draw(){
+  // 背景
   display.setBackground(#142255);
   
+  // 空
   tsuru1.setFly();
   tsuru2.setFly();
   tsuru3.setFly();
   tsuru4.setFly();
   tsuru5.setFly();
+  iwa2.display();
   
-  iwa.display();
+  // 一番奥の波
+  nami4.waving(0.5, 10, 100);
+  fune1.moving(0.81, 0.1);
   
+  // 二番目の波
+  nami3.waving(1, 10, 80);
+  iwa1.display();
   kame.move();
-  fune1.drafting(0.85);
+  hana.setImages(display.fingerX, display.fingerY, 1);
+  hana1.setImages(display.fingerX+100, display.fingerY, 0.4);
+  hana2.setImages(display.fingerX+50, display.fingerY, 0.4);
   
-  hana.setImages(display.fingerX, display.fingerY);
-  nami2.waving(0.9, -10, 30);
-  
-<<<<<<< HEAD
+  // ３番目の波
+  nami2.waving(0.9, 10, 30);
   sakana.move();
   
-  nami1.waving(1, -10, 50);
+  // ４番目の波
+  nami1.waving(1, 10, 50);
   
-=======
->>>>>>> refs/remotes/origin/master
-  //touchedMarker();
+  if(tsuru1.pulseRun || tsuru2.pulseRun || tsuru3.pulseRun || tsuru4.pulseRun || tsuru5.pulseRun) bigTsuru.setCount();
+  bigTsuru.advent();
+  
+  // 両端の黒（マスク）
   display.setMask(0);
 }
 
@@ -104,6 +121,8 @@ void setTouch(){
   tsuru5.setTouched(mouseX, mouseY);
   kame.setTouched(mouseX, mouseY);
   sakana.setTouched(mouseX, mouseY);
+  fune1.setTouched(mouseX, mouseY);
+  bigTsuru.setTouched(mouseX, mouseY);
   tsuru1.setTouched(display.fingerX, display.fingerY);
   tsuru2.setTouched(display.fingerX, display.fingerY);
   tsuru3.setTouched(display.fingerX, display.fingerY);
@@ -111,8 +130,13 @@ void setTouch(){
   tsuru5.setTouched(display.fingerX, display.fingerY);
   kame.setTouched(display.fingerX, display.fingerY);
   sakana.setTouched(display.fingerX, display.fingerY);
+  fune1.setTouched(display.fingerX, display.fingerY);
+  bigTsuru.setTouched(display.fingerX, display.fingerY);
   
   hana.dragged();
+  hana1.dragged();
+  hana2.dragged();
+  
 }
 
 void touchedMarker(){

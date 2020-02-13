@@ -21,7 +21,6 @@ class Kame extends Animal{
       }
     }
     nowTime++;
-    println("kame:"+positionX);
   }
   
   void setTouched(float fingerX, float fingerY){

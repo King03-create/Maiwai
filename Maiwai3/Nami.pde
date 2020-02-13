@@ -7,6 +7,6 @@ class Nami extends RichObject{
   }
   
   void waving(float x, float dimention, float phase){
-    wave(x, 0, 1, dimention, phase);
+    wave(x, 0, 1, -dimention, phase);
   }
 }

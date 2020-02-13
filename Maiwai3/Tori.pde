@@ -4,6 +4,8 @@ class Tori extends Animal{
   int waitTime = 0;
   int nowTime = 0;
   float randomPositionX, randomPositionY, randomVelX, randomVelY, randomAccelY;
+  boolean pulseRun = false;
+  boolean pulseRunSwitch = false;
   
   /*---------------------------コンストラクタ-----------------------------------*/
   
@@ -25,6 +27,9 @@ class Tori extends Animal{
     nowTime = 0;
     setPosition(randomPositionX, randomPositionY);
     setRunValue(-8, 0, 0, -0.5, 0.5);
+    
+    pulseRun = false;
+    pulseRunSwitch = false;
   }
   
   /*-------------------------------使うやつ-------------------------------------*/
@@ -47,29 +52,36 @@ class Tori extends Animal{
     }else{
       nowTime++;
     }
+    
+    if(pulseRun){
+      pulseRun = false;
+      pulseRunSwitch = true;
+    }
+    if(isRun && !pulseRun && !pulseRunSwitch) pulseRun = true;
   }
   
   void checkIsOut(){
     float margin = 100;
-    float left = -iniX;
+    float left = (width - display.screenWidth) / 2.0 - 100;
     float right = display.SENSOR_WIDTH;
     float top = -iniY;
     float bottom = display.SENSOR_HEIGHT;
-    float positionLeft = abs((positionX)/convertWidth+(iniPositionX-display.SENSOR_WIDTH));
+    float positionLeft = abs(positionX/convertWidth+(iniPositionX-display.SENSOR_WIDTH));
+    float nowPositionX = ((iniX + displayOriginX) + positionX);
     
     if(positionY < top - margin || positionY > bottom + margin){ // 上下判定
       resetValues();
     }else{ // 上下判定がなくても左右に行ったらリセット
-      if(isRun && (positionX > right + margin || positionX < left - margin)){ // 左右どちらかへ逃げた場合
+      if(isRun && (positionX > right + margin || nowPositionX < left)){ // 左右どちらかへ逃げた場合
         resetValues();
       }
       if(!isRun){ // 逃げなかった場合
         if(iniMoveVelX > 0 && positionX > right) resetValues(); // 左から右へ
-<<<<<<< HEAD
+
         if(iniMoveVelX < 0 && positionLeft < -right) resetValues(); // 右から左へ
-=======
-        if(iniMoveVelX < 0 && positionLeft < left) resetValues(); // 右から左へ
->>>>>>> refs/remotes/origin/master
+
+        if(iniMoveVelX < 0 && nowPositionX < left) resetValues(); // 右から左へ
+
       }
     }
   }
