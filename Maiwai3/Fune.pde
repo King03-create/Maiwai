@@ -12,11 +12,11 @@ class Fune extends Drafts{
     ryou = new RichObject("ryou.png");
   }
   
-  void moving(float y, float speed){
+  void moving(float y, float speedX, float speedY){
     float funeX = positionX / convertWidth;
     float funeY = positionY / convertHeight;
     
-    super.drafting(y, speed);
+    super.drafting(y, speedX, speedY);
     if(isTouched){
       if(!isViewTai){
         isViewTai = true;

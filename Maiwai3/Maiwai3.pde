@@ -67,7 +67,7 @@ void setup(){
   minim = new Minim(this);
   sound_umi = minim.loadFile("sound/umi.mp3");
   sound_awa = minim.loadFile("sound/awabushi.mp3");
-  sound_umi.setGain(-20);
+  sound_umi.setGain(0);
   sound_awa.setGain(-10);
   sound_umi.loop();
 }
@@ -91,7 +91,7 @@ void draw(){
   
   // 一番奥の波
   nami4.waving(0.5, 10, 100);
-  fune1.moving(0.81, 0.1);
+  fune1.moving(0.81, 0.5, 0.1);
   
   // 二番目の波
   nami3.waving(1, 10, 80);
@@ -121,7 +121,7 @@ void draw(){
   if(fune1.positionX > display.SENSOR_WIDTH/2.0 + 100) funeGain += 0.1;
   else if(fune1.positionX < display.SENSOR_WIDTH/2.0 - 100) funeGain -= 0.1;
   println(funeGain);
-  sound_awa.setGain(-80 + funeGain);
+  sound_awa.setGain(-70 + funeGain);
   if(fune1.visible) sound_awa.play();
   else {
     funeGain = 0;
