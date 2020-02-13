@@ -28,7 +28,7 @@ final String LANDSCAPE = "LANDSCAPE";
 int bigTsuruCount = 0;
 
 Minim minim;
-AudioPlayer sound_umi;
+AudioPlayer sound_umi, sound_awa;
 
 void setup(){
   fullScreen();
@@ -65,7 +65,9 @@ void setup(){
   
   minim = new Minim(this);
   sound_umi = minim.loadFile("sound/umi.mp3");
+  sound_awa = minim.loadFile("sound/awabushi.mp3");
   sound_umi.setGain(-20);
+  sound_awa.setGain(-10);
   sound_umi.loop();
 }
 
@@ -113,6 +115,8 @@ void draw(){
   
   // 両端の黒（マスク）
   display.setMask(0);
+  
+  if(fune1.atFirst) sound_awa.play();
 }
 
 void mouseClicked(){
