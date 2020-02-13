@@ -121,7 +121,7 @@ void draw(){
   if(fune1.positionX > display.SENSOR_WIDTH/2.0 + 100) funeGain += 0.1;
   else if(fune1.positionX < display.SENSOR_WIDTH/2.0 - 100) funeGain -= 0.1;
   println(funeGain);
-  sound_awa.setGain(-(40+funeGain));
+  sound_awa.setGain(-(funeGain-40));
   if(fune1.visible) sound_awa.play();
   else {
     funeGain = 0;
