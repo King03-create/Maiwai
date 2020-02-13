@@ -91,8 +91,8 @@ void draw(){
   iwa1.display();
   kame.move();
   hana.setImages(display.fingerX, display.fingerY, 1);
-  hana1.setImages(display.fingerX+100, display.fingerY, 0.4);
-  hana2.setImages(display.fingerX+50, display.fingerY, 0.4);
+  hana1.setImages(display.fingerX, display.fingerY, 0.4);
+  hana2.setImages(display.fingerX, display.fingerY, 0.4);
   
   // ３番目の波
   nami2.waving(0.9, 10, 30);

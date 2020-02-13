@@ -28,8 +28,8 @@ class Hana extends Object{
     for(int i = 0; i < isView.length; i++){
       if(isView[i]){
         if(!atFirst[i]){
-          pointX[i] = (x - displayOriginX)/convertWidth;
-          pointY[i] = y / convertHeight;
+          pointX[i] = (x - displayOriginX)/convertWidth + random(-30, 30);
+          pointY[i] = y / convertHeight + random(-30, 30);
           randomAngle[i] = (int)random(0, 180);
           atFirst[i] = true;
         }
