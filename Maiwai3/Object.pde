@@ -33,7 +33,7 @@ class Object{
   void display(PImage image){
     float translateX = ((iniX + displayOriginX) + positionX); 
     float translateY = ((iniY + displayOriginY) + positionY);
-    float sizeWidth = image.width * width / 3000.0;
+    float sizeWidth = image.width * height / 2000.0;
     float sizeHeight = image.height * height / 2000.0;
     
     if(angle != 0){
