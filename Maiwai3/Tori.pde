@@ -22,7 +22,7 @@ class Tori extends Animal{
     randomPositionY = random(0.1, 0.7);
     randomVelX = random(-10, -1);
     randomVelY = random(0, 1);
-    randomAccelY = random(0, 1) * 0.01;
+    randomAccelY = random(0, 1) * -0.01;
     
     nowTime = 0;
     setPosition(randomPositionX, randomPositionY);
@@ -34,19 +34,15 @@ class Tori extends Animal{
   
   /*-------------------------------使うやつ-------------------------------------*/
   
-  void setFly(){
-    setFly(randomVelX, randomVelY);
-  }
-  
   void setTouched(float fingerX, float fingerY){
     touch(fingerX, fingerY);
   }
   
   /*-------------------------------動きの定義-------------------------------------*/
   
-  void setFly(float moveX, float moveY){
+  void setFly(){
     if(waitTime*rareTime*30 < nowTime){ // nowTimeを秒換算
-      setMoveValue(moveX * speed, moveY * speed, 0, 0, 0);
+      setMoveValue(randomVelX * speed, randomVelY * speed, 0, randomAccelY, 0);
       moveAction();
       checkIsOut();
     }else{
